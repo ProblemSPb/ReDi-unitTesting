@@ -20,6 +20,7 @@ public class ShopTest {
         assertEquals(biscuits, shop.getProducts().get(0));
     }
 
+    /*
     @Test
     void addingMultipleProducts_updatesTheListOfProducts() {
         Shop shop = new Shop("MyShop");
@@ -93,4 +94,5 @@ public class ShopTest {
 
         assertEquals(2, cheapProducts.size());
     }
+    */
 }
