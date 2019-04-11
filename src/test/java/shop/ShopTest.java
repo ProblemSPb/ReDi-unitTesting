@@ -1,5 +1,6 @@
 package shop;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -16,6 +17,10 @@ public class ShopTest {
 
         shop.addNewProduct(biscuits);
 
+        // this one is from AssertJ Fluent Assertions
+        Assertions.assertThat(shop.getProducts().size()).isEqualTo(1);
+
+        // this one is from JUnit
         assertEquals(1, shop.getProducts().size());
         assertEquals(biscuits, shop.getProducts().get(0));
     }
@@ -29,6 +34,8 @@ public class ShopTest {
 
         shop.addNewProduct(biscuits);
         shop.addNewProduct(coffee);
+
+        Assertions.assertThat(shop.getProducts().size()).isEqualTo(2);
 
         assertEquals(2, shop.getProducts().size());
         assertEquals(Arrays.asList(biscuits, coffee), shop.getProducts());
@@ -44,6 +51,8 @@ public class ShopTest {
         shop.addNewProduct(coffee);
 
         shop.removeProductFromShelf(biscuits.getName());
+
+        Assertions.assertThat(shop.getProducts().size()).isEqualTo(1);
 
         assertEquals(1, shop.getProducts().size());
         assertEquals(coffee, shop.getProducts().get(0));
@@ -62,6 +71,8 @@ public class ShopTest {
 
         shop.removeProductFromShelf(biscuits.getName());
 
+        Assertions.assertThat(shop.getProducts().size()).isEqualTo(2);
+
         assertEquals(2, shop.getProducts().size());
         assertEquals(Arrays.asList(moreBiscuits, coffee), shop.getProducts());
     }
@@ -78,6 +89,8 @@ public class ShopTest {
 
         List<Product> inventory = shop.inventory();
 
+        Assertions.assertThat(inventory.size()).isEqualTo(3);
+
         assertEquals(3, inventory.size());
         assertEquals(Arrays.asList(biscuits, milk, coffee), shop.getProducts());
     }
@@ -93,6 +106,8 @@ public class ShopTest {
         shop.addNewProduct(coffee);
 
         List<Product> cheapProducts = shop.getCheapProducts();
+
+        Assertions.assertThat(cheapProducts.size()).isEqualTo(2);
 
         assertEquals(2, cheapProducts.size());
 
