@@ -16,13 +16,9 @@ public class Shop {
 
     }
 
-    String getName() {
-        return name;
-    }
+    String getName() { return name; }
 
-    List<Product> getProducts() {
-        return products;
-    }
+    List<Product> getProducts() { return products; }
 
     public void addNewProduct(Product product) {
         //TODO implement method
@@ -32,14 +28,33 @@ public class Shop {
 
     public void removeProductFromShelf(String name) {
         //TODO implement method
+
+        for (int i = 0; i < products.size(); i++) {
+            if (products.get(i).getName().equals(name)) {
+                products.remove(i);
+                break;  // i remove just one if identified
+            }
+        }
+
     }
 
-   // public List<Product> inventory() {
-     //   //TODO implement method
-
-    //}
-
-    public void getCheapProducts() {
+   public List<Product> inventory() {
         //TODO implement method
+        return products;
     }
+
+    public List<Product> getCheapProducts() {
+        //TODO implement method
+
+         List<Product> cheapProduct = new ArrayList<Product>();
+
+        for (int i = 0; i < products.size(); i++) {
+            Product currentProduct = products.get(i);
+            if (currentProduct.getPrice() <= 2) {
+                cheapProduct.add(currentProduct);
+            }
+        }
+        return cheapProduct;
+    }
+
 }

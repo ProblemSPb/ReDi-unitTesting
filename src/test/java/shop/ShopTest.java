@@ -20,7 +20,7 @@ public class ShopTest {
         assertEquals(biscuits, shop.getProducts().get(0));
     }
 
-    /*
+
     @Test
     void addingMultipleProducts_updatesTheListOfProducts() {
         Shop shop = new Shop("MyShop");
@@ -33,6 +33,7 @@ public class ShopTest {
         assertEquals(2, shop.getProducts().size());
         assertEquals(Arrays.asList(biscuits, coffee), shop.getProducts());
     }
+
 
     @Test
     void removingProductFromShelf_removesItemFromList() {
@@ -47,6 +48,7 @@ public class ShopTest {
         assertEquals(1, shop.getProducts().size());
         assertEquals(coffee, shop.getProducts().get(0));
     }
+
 
     @Test
     void removingProductFromShelf_removesJustOneItem_WhenMultipleItemsWithTheSameNameAreInTheShop() {
@@ -93,6 +95,7 @@ public class ShopTest {
         List<Product> cheapProducts = shop.getCheapProducts();
 
         assertEquals(2, cheapProducts.size());
+
+        // returns all products with price less than 2 euro
     }
-    */
 }
